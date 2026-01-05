@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalkBox Chats - Connect with Anyone</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📦 TalkBox Chats</h1>
+      <p>Manage your conversations</p>
+      <a href="/chats/new" class="new-chat-btn">+ New Chat</a>
+    </div>
+
+    <div class="chats-container">
+      <% if (chats.length === 0) { %>
+        <div class="no-chats">
+          No chats yet. Start a new conversation!
+        </div>
+      <% } else { %>
+        <% chats.forEach(chat => { %>
+          <div class="chat-item">
+            <div class="chat-header">
+              <div class="chat-users">
+                <span class="from"><%= chat.from %></span> 
+                → 
+                <span class="to"><%= chat.to %></span>
+              </div>
+              <div class="chat-date">
+                <%= chat.created_at.toLocaleDateString() %>
+              </div>
+            </div>
+            
+            <div class="chat-message">
+              <%= chat.message %>
+            </div>
+
+            <div class="chat-actions">
+              <a href="/chats/<%= chat._id %>/edit" class="btn btn-edit">✏️ Edit</a>
+              <form action="/chats/<%= chat._id %>?_method=DELETE" method="POST" style="display: inline;">
+                <button type="submit" class="btn btn-delete" onclick="return confirm('Delete this chat?')">🗑️ Delete</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
