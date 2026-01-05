@@ -1,0 +1,26 @@
+{
+  "name": "talkbox",
+  "version": "1.0.0",
+  "description": "TalkBox Chat Application - Connect with Anyone",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "init": "node init.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "talkbox",
+    "chat",
+    "express",
+    "mongodb",
+    "messaging"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.1.1"
+  }
+}
